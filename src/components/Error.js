@@ -10,14 +10,14 @@ class Error extends Component {
     
     render() {
         return this.props.invalidHackers.map(invalidHacker => {
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 error">
+            return (<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 error">
                 <div id="list">
                     <div className="error-msg">
                         <i className="fa fa-times-circle"></i>
                         <p>Error! No menu generated for {invalidHacker}</p>
                     </div>
                 </div>
-            </div>
+            </div>)
         });
     }
     

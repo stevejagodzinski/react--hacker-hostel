@@ -9,7 +9,11 @@ class App extends Component {
     constructor(props) {
         super(props);
         
-        this.state = {invalidHackers: []};
+        this.state = {
+            hackers: [],
+            dates: [],
+            invalidHackers: []
+            };
         
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleButtonClicked = this.handleButtonClicked.bind(this);
@@ -18,17 +22,22 @@ class App extends Component {
     handleInputChange(e) {
         const target = e.target;
         const value = target.value;
+        const name = target.name;
         
-        this.setState({[target.name]: value});
+        this.setState({[name]: value});
+        console.log(this.state)
     }
     
     handleButtonClicked() {
         this.setState({invalidHackers: this.getInvalidHackers()})
+        console.log(this.state)
     }
     
     getInvalidHackers() {
         const hackers = this.parseHackers();
         const dates = this.parseDates();
+        
+        console.log({hackers: hackers, dates: dates})
         
         let invalidHackers = [];
         for (let i=0; i<hackers.length; i++) {
@@ -38,6 +47,8 @@ class App extends Component {
             }
             
         }
+        
+        console.log({invalidHackers: invalidHackers});
         
         return invalidHackers;
     }
